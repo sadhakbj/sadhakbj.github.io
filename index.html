@@ -1,0 +1,262 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Laravel Framework and 7 Golden Rules of Clean and maintainable Code</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown>
+            ## Laravel Framework & 7 Golden Rules of Clean, Simple and Maintainable Code
+            ---
+            [Bijaya Prasad Kuikel](https://www.facebook.com/sadhakbj) / [@sadhakbj](https://twitter.com/sadhakbj)
+
+            Jr. Software Engineer
+
+            [YoungInnovations Pvt. Ltd](http://younginnovations.com.np/) , Kumaripati, Lalitpur
+
+        </section>
+
+        <section data-markdown>
+            ### Acknowledgement
+            ---
+
+            * Mr. Geshan Manandhar (Co-founder YIPL)
+
+            * Mr. Sumit Chetri (Sr. Software Engineer , YIPL)
+
+        </section>
+
+        <section data-markdown>
+            ### Table of Contents
+            ---
+            * Introduction to Laravel Framework
+
+            * Reasons to use Laravel Framework
+
+            * 7 Golden Rules of Clean, Simple and Maintainable Code
+        </section>
+
+        <section data-markdown>
+            ### PHP Frameworks
+            ---
+            ![frameworks](images/frameworks.jpg "frameworks")
+        </section>
+
+        <section data-markdown>
+            ### What does Framework do for you?
+            ---
+            * Speeds up development.
+
+            * Provides well-organized, reusable and maintainable code.
+
+            * Provides high level security.
+
+        </section>
+
+        <section data-markdown>
+            ### Laravel
+            ---
+            ![laravel](images/laravel.jpg "laravel")
+
+        </section>
+
+        <section data-markdown>
+            * PHP WEB Framework (MVC)
+
+            * Open Source , Full Stack Framework.
+
+            * Initial Release: June 2011
+
+            * Website: [laravel.com](http://www.laravel.com)
+        </section>
+
+        <section data-markdown>
+            ### Creator of Laravel
+            ---
+            Taylor Otwell
+
+            ![taylor](images/taylor.png "taylor")
+        </section>
+
+        <section data-markdown>
+            ### 7 Reasons to use Laravel Framework
+            ---
+            * Excellent Documentation.
+            * Laracasts
+
+            * Intuitive Syntax
+
+            * Artisan Code Generation
+
+            * Out-of-the-box User Model
+
+            * Blade Templating Engine
+
+            * Supporting Products and Packages
+
+        </section>
+
+        <section data-markdown>
+            ### Reason 1 : Excellent Documentation
+            ---
+            * Easy to start up with laravel.
+
+            * Visit [Laravel Docs](http://www.laravel.com/docs)
+
+        </section>
+
+        <section data-markdown>
+            ### Reason 2 : Laracasts
+            ---
+            * Laravel is supported by Laracasts.
+
+            * Discussion Forum
+
+            * Features a mix of free and paid videos that show you how to use Laravel
+
+            * Laracasts is addicting
+
+            * Owned by Jeffrey Way
+        </section>
+
+        <section data-markdown>
+            ### Jeffrey Way
+            ---
+            * An expert and well-versed instructor
+
+            ![jeffrey](images/jeff_way.jpeg "jeffrey")
+        </section>
+
+        <section data-markdown>
+            ### Reason 3 : Intuitive Syntax
+            ---
+            * Follows principle of clear and maintainable code
+
+            * Examples:
+
+            ```
+            // asking Role models for all the roles with pagination.
+
+            $roles = Role::paginate(5);
+
+            ```
+            Another
+            ```
+            // asking for single model instance , throw exception if not found
+
+            $role = Role::findOrFail($id);
+            ```
+        </section>
+
+        <section data-markdown>
+            ### Reason 4: Artisan Code Generation
+            ---
+            * Laravel ships great command line tool named Artisan
+
+            * provides a number of helpful commands
+
+            * Example: Make a new Controller
+            ```
+            php artisan make:controller SampleController
+            ```
+
+            * Example: Make a new Migration
+            ```
+            php artisan make:migration create_articles_table --create
+            ```
+
+        </section>
+
+        <section data-markdown>
+            ### Reason 5: Out-of-the-box User Model
+            ---
+            * Inbuilt user model with controllers and migration to setup user table
+
+            * Fully working user registration and login system, with forgot password functionality
+        </section>
+
+        <section data-markdown>
+            ### Reason 6: Blade Templating Engine
+            ---
+            * Simple, yet powerful templating engine provided with Laravel
+
+            * Makes working with the typical PHP/HTML much better
+
+            * Typical PHP / HTML :
+            ```
+            if(accepted == true)
+            {
+                echo $userName;
+            }
+            ```
+
+            * Blade templating engine:
+            ```
+            @if(accepted == true)
+                {{ $userName }}
+            @endif
+            ```
+
+        </section>
+
+        <section data-markdown>
+            ### Reason 7: Supporting Products and Packages
+            ---
+            * Well-supported by many packages
+
+            * Services from Laravel:
+                * Lumen
+                * Homestead
+                * Elixir
+                * Forge
+
+            * Help from beginning from local environment to deployment
+
+
+
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
