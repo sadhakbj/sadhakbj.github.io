@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Unit tests in PHP with PHPUnit</title>
+
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-markdown>
+            ## Unit tests in PHP with PHPUnit
+            ---
+            [Bijaya Prasad Kuikel](https://www.facebook.com/sadhakbj) / [@sadhakbj](https://twitter.com/sadhakbj)
+        </section>
+
+        <section data-markdown>
+            ### Acknowledgement
+            ---
+
+            * Mr. Geshan Manandhar (Co-founder YIPL)
+
+
+        </section>
+
+        <section data-markdown>
+            ### Table of Contents
+            ---
+            * Types of Testing
+
+            * Qualities of Unit testing
+
+            * Reasons to write Unit Testing
+
+            * PhpUnit, installation and basic example of test.
+        </section>
+
+        <section data-markdown>
+            ### Software Development Life Cycle
+            ---
+            ![SDLC](../../images/SDLC.jpg "SDLC")
+        </section>
+        <section data-markdown>
+            ### Types of Testing
+            ---
+            * Unit Testing
+
+            * Integration Testing
+
+            * Functional Testing
+
+            * Acceptance Testing
+        </section>
+        <section data-markdown>
+            ### Unit testing
+            ---
+            * Method of testing that verifies the individual units of source code are working properly.
+
+            * Unit : The smallest testable part of an application.
+
+                * Functions
+
+                * Classes
+
+                * Methods
+
+        </section>
+        <section data-markdown>
+            ### Qualities of Unit tests
+            ---
+            * It should test only one specific part of the application generally a method/class.
+
+            * It should be simple and verify only the specific part under test (single unit of work).
+
+            * It should not depend on external data.
+
+            * It should not dependent on external resources like file system, database etc.
+
+            * It should not depend on particular order and be isolated, so you could even run it in parallel.
+        </section>
+        <section data-markdown>
+            ### Releasing untested software is same as serving tea to important guests without tasting it.
+            ---
+            ![why](../../images/test_first.gif "why")
+
+        </section>
+
+        <section data-markdown>
+            ### 8 Reasons to write Unit Tests
+            ---
+            * Tests Reduce Bugs in New Features and Existing Features
+
+            * Tests Are Good Documentation
+
+            * Tests Reduce the Cost of Change.
+
+            * Tests Improve Design.
+
+            * Tests Allow Refactoring
+
+            * Testing Is Fun
+
+            * Testing Makes Development Faster
+
+            * Tests Reduce Fear
+
+        </section>
+
+        <section data-markdown>
+            ### PHPUnit
+            ---
+            * Unit testing framework written in PHP, created by Sebastian Bergmann.
+
+            * Part of xUnit family (JUnit, Sunit)
+
+            * Major frameworks, such as Laravel, Symphony, and Zend have test suites written with PHPUnit.
+
+            * Current version 5.7
+        </section>
+
+        <section data-markdown>
+            ### Installation
+            ---
+
+            * Requires PHP 5.6, dom and json extensions.
+
+            * Installation via composer
+            ```
+            composer global require "phpunit/phpunit=5.5.*"
+            ```
+
+        </section>
+
+        <section data-markdown>
+            ### Best Practices in PHPUnit
+            ---
+
+            * Test one unit at a time.
+
+            * Make each test independent.
+
+            * Mock external state and services.
+
+            * Use good OOP and DRY principles.
+
+        </section>
+
+        <section data-markdown>
+            ### Example:
+            ---
+            ```php
+            class Calculator
+            {
+                public function add($first, $second)
+                {
+                    return $first + $second;
+                }
+
+            }
+            ```
+
+
+        </section>
+
+        <section data-markdown>
+            ### Test
+            ---
+            ```php
+            require 'Calculator.php';
+
+            class CalculatorTest extends PHPUnit_Framework_TestCase
+            {
+                private $calculator;
+
+                protected function setUp()
+                {
+                    $this->calculator = new Calculator();
+                }
+
+                public function testItShouldReturnSumOfTwoNumbers()
+                {
+                    $result = $this->calculator->add(1, 2);
+                    $this->assertEquals($result, 3);
+                }
+
+                protected function tearDown()
+                {
+                    $this->calculator = NULL;
+                }
+
+            }
+
+            ```
+        </section>
+
+        <section data-markdown>
+            ### Running tests
+            ---
+            * Use the command:
+            ```
+            ./vendor/bin/phpunit Filename (optional)
+            ```
+            * Output:
+                - ![Output](../../images/test.png "output")
+
+        </section>
+
+
+    </div>
+</div>
+
+<script src="../../lib/js/head.min.js"></script>
+<script src="../../js/reveal.js"></script>
+
+<script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      {src: '../../plugin/markdown/marked.js'},
+      {src: '../../plugin/markdown/markdown.js'},
+      {src: '../../plugin/notes/notes.js', async: true},
+      {
+        src: '../../plugin/highlight/highlight.js', async: true, callback: function() {
+        hljs.initHighlightingOnLoad();
+      }
+      }
+    ]
+  });
+
+  Reveal.configure({slideNumber: true});
+</script>
+</body>
+</html>
