@@ -1,7 +1,7 @@
-import ReactDOMServer from 'react-dom/server'
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
 import { Feed } from 'feed'
 import { mkdir, writeFile } from 'fs/promises'
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider'
+import ReactDOMServer from 'react-dom/server'
 
 import { getAllArticles } from './getAllArticles'
 
@@ -9,8 +9,8 @@ export async function generateRssFeed() {
   let articles = await getAllArticles()
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'Bijaya Prasad Kuikel',
+    email: 'sadhakbj@gmail.com',
   }
 
   let feed = new Feed({
