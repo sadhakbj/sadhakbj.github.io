@@ -256,8 +256,7 @@ export default function Home({ articles }) {
             Software engineer, tech enthusiast, and tutor.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Bijaya, a software engineer and entrepreneur based in Tokyo Japan
-            City. 
+            I’m Bijaya,  a software engineer, tech enthusiast and tutor based in Tokyo Japan City.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
