@@ -39,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="flex-1 relative pt-24 md:pt-32">
+          <main className="flex-1 relative pt-20">
             {children}
           </main>
           <Footer />
